@@ -12,7 +12,7 @@ int main(void){
     uint32 Flag = 1;
 
 while(Flag){
-    printf("\nWhat do you need : \n1.Create Queue     2.Push Value    3.Pop Value     4.Git First     5.Git End     6.Print Queue      7.Size Of Queue     8.Free Queue    9.Exit\n");
+    printf("\nWhat do you need : \n1.Create Queue     2.Add Value    3.Remove Value     4.Git First     5.Git End     6.Print Queue      7.Size Of Queue     8.Free Queue    9.Exit\n");
     scanf("%i",&sel);
     switch (sel){
         case 1 : 
@@ -21,13 +21,13 @@ while(Flag){
             status = Queue_First_Node(Queue_Top,value);
             break;
         case 2 :
-            printf("Please Enter the Pushed Value\n");
+            printf("Please Enter the Added Value\n");
             scanf("%i",&value);
             status = Queue_Add(Queue_Top,value);
             break;
         case 3 :
             status = Queue_Remove(Queue_Top,&value);
-            printf("Poped Value is %i \n",value);
+            printf("Removed Value is %i \n",value);
             break;
         case 4 :
             status = Queue_First(Queue_Top,&value);
@@ -67,7 +67,7 @@ while(Flag){
 STD_ReturnType Queue_First_Node(Nodes **First,uint32 data){
     STD_ReturnType status = RET_OK;
     Nodes *temp = (Nodes*)malloc(sizeof(Nodes));
-    if(NULL == *First){
+    if(NULL == First){
         printf("NULL Pointer\n");
         status = RET_NOT_OK;
     }
@@ -84,7 +84,7 @@ STD_ReturnType Queue_Add(Nodes **First,uint32 data){
     STD_ReturnType status = RET_OK;
     Nodes *temp ;
     Nodes *temp_1;
-    if(NULL == *First){
+    if(NULL == First){
         printf("NULL Pointer\n");
         status = RET_NOT_OK;
     }
@@ -111,7 +111,7 @@ STD_ReturnType Queue_Add(Nodes **First,uint32 data){
 STD_ReturnType Queue_Remove(Nodes **First,uint32 *data){
     STD_ReturnType status = RET_OK;
     Nodes *temp;
-    if(NULL == *First){
+    if(NULL == First){
         printf("Empty Stack!!\n");
         status = RET_NOT_OK;
     }
@@ -127,7 +127,7 @@ STD_ReturnType Queue_Remove(Nodes **First,uint32 *data){
 }
 STD_ReturnType Queue_First(Nodes **First,uint32 *data){
     STD_ReturnType status = RET_OK;
-    if(NULL == *First){
+    if(NULL == First){
         printf("NULL Pointer\n");
         status = RET_NOT_OK;
     }
@@ -140,7 +140,7 @@ STD_ReturnType Queue_First(Nodes **First,uint32 *data){
 STD_ReturnType Queue_End(Nodes **First,uint32 *data){
     STD_ReturnType status = RET_OK;
     Nodes *temp_1;
-    if(NULL == *First){
+    if(NULL == First){
         printf("NULL Pointer\n");
         status = RET_NOT_OK;
     }
@@ -158,7 +158,7 @@ STD_ReturnType Queue_Print(Nodes **First){
     STD_ReturnType status = RET_OK;
     Nodes *temp ;
     uint32 i ;
-    if(NULL == *First){
+    if(NULL == First){
         printf("NULL Pointer\n");
         status = RET_NOT_OK;
     }
@@ -181,7 +181,7 @@ STD_ReturnType Queue_Free(Nodes **First){
     STD_ReturnType status = RET_OK;
     Nodes *temp ;
     uint32 i ;
-    if(NULL == *First){
+    if(NULL == First){
         printf("NULL Pointer\n");
         status = RET_NOT_OK;
     }
